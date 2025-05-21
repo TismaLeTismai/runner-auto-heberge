@@ -9,7 +9,7 @@ jobs:
         run: echo "✅ Job exécuté depuis le runner auto-hébergé"
 
       - name: Installer tree
-        run: sudo apt update && sudo apt install -y tree
+        run: choco install tree -y
 
       - name: Créer un fichier
         run: |
@@ -17,10 +17,10 @@ jobs:
           echo "Ceci est un fichier généré" > output/test.txt
 
       - name: Lister les fichiers
-        run: tree .
+        run: tree
 
       - name: Upload artefact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.2
         with:
           name: fichier-genere
           path: output/test.txt
